@@ -1,6 +1,6 @@
 # jasmine-all
 
-A single script to embed [jasmine]() specs in a JSFiddle easily.
+A single script to embed [jasmine]() specs in a trivial HTML file or online with something like a JSFiddle very easily.
 
 Here's a minimal little example:
 
@@ -27,3 +27,7 @@ Here's a minimal little example:
   </body>
 </html>
 ```
+
+The above markup should produce something like this:
+
+![Screenshot](http://i.minus.com/iE2SLer3L7xxC.png "Screenshot")
