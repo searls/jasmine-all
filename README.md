@@ -1,8 +1,20 @@
 # jasmine-all
 
-A single script to embed [jasmine]() specs in a trivial HTML file or online with something like a JSFiddle very easily.
+A single script to embed [jasmine](http://pivotal.github.com/jasmine/) specs in a trivial HTML file or online with something like a JSFiddle very easily.
 
-Here's a minimal little example:
+Here's the URL:
+
+```
+http://searls.github.com/jasmine-all/jasmine-all-min.js
+```
+
+Here's what that URL looks like in a script tag:
+
+``` html
+<script type="text/javascript" src="http://searls.github.com/jasmine-all/jasmine-all-min.js"></script>
+```
+
+Here's what that URL looks like in a [full-blown HTML document](http://searls.github.com/jasmine-all/examples/1-min.html):
 
 ``` html
 <!DOCTYPE html>
