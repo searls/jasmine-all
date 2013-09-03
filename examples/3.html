@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+</html>
+  <head>
+    <title>Jasmine</title>
+  </head>
+  <body>
+		<style type="text/css">
+			#left {
+				float: left;
+				width: 50%;
+			}
+			#right {
+				float: right;
+				width: 50%;
+			}
+		</style>
+
+    <script type="text/javascript" src="../jasmine-all.js"></script>
+
+    <script type="text/javascript">
+      window.hugPanda = function(){ return "yay!"; };
+    </script>
+
+    <script type="text/javascript">
+      describe('hugging pandas', function(){
+        it('makes me yell "yay!"', function(){
+          expect(hugPanda()).toBe("yay!");
+        });
+      });
+    </script>
+
+		<div id="left">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+		<div id="right"></div>
+
+		<script type="text/javascript">
+			(function() {
+			  var element = document.getElementById("right");
+			  jasmineRunner.attachTo(element);
+		  })();
+		</script>
+  </body>
+</html>
