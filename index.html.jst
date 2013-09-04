@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Jasmine-All Test Runner</title>
+    <script type="text/javascript" src="jasmine-all.js"></script>
+    <script type="text/javascript" src="introduction-specs.js"></script>
+    <style type="text/css">
+      pre {
+        width: 580px;
+        -webkit-border-radius: 0px;
+        -moz-border-radius: 0px;
+        -ms-border-radius: 0px;
+        -o-border-radius: 0px;
+        border-radius: 0px;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        background: none;
+        color: #586e75;
+        padding: 10px;
+        margin-bottom: 0;
+        overflow-x: visible;
+        overflow-y: auto;
+        font-style: normal;
+        font-weight: normal;
+        border: thin dotted black;
+      }
+      .column {
+        margin-top: 10px;
+        font-size: 12px;
+        position: relative;
+        font-family: 'Lucida Grande', Tahoma, Verdana, Arial, sans-serif;
+        background-color: white;
+        padding: 9px 11px;
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid #c5c5c5;
+        -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+        -moz-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+        box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+      }
+      h1, #counter {
+        width: 100%;
+        text-align: center;
+        margin: auto;
+        font-weight: bold;
+      }
+      @media only screen and (min-width: 1420px) {
+        .left {
+          width: 600px;
+          float: left;
+        }
+        .right {
+          width: 50%;
+          float: right;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Jasmine-All</h1>
+    <div class="column left">
+      <p>This is a simple wrapper around <a href="http://pivotal.github.com/jasmine/">Jasmine</a> to allow easy inclution into html pages which can not include their own runner and CSS. The best example is dynamic sites that allow you to write simple HTML and JS docs for experimentation like <a href="http://jsbin.com/">JSBin</a> and <a href="http://jsfiddle.net/">JS Fiddle</a>.</p>
+
+      <p>Here is an <a href="http://jsbin.com/UfadEde/1/edit">example of a JSBin</a> using this wrapper.</p>
+
+      <p>Version: <%= jasmineVersion %></p>
+
+      <p>Source code available: <a href="http://github.com/sukima/jasmine-all/">http://github.com/sukima/jasmine-all/</a></p>
+
+      <h2 id="how-to-use-it">How to use it</h2>
+
+      <p>Simply add the following to your HTML and be on your merry way:</p>
+
+      <pre><code>&lt;script type="text/javascript" src="http://sukima.github.com/jasmine-all/jasmine-all-min.js"&gt;&lt;/script&gt;</code></pre>
+
+      <h4 id="example-1">Example 1</h4>
+
+      <pre>
+<%- examples[0] %>
+      </pre>
+
+      <h4 id="example-2">Example 2</h4>
+
+      <pre>
+<%- examples[1] %>
+      </pre>
+
+      <h4 id="example-3">Example 3</h4>
+
+      <pre>
+<%- examples[2] %>
+      </pre>
+    </div>
+    <div class="column right">
+      <div id="counter"></div>
+      <div id="specs"></div>
+    </div>
+    <script type="text/javascript">
+      (function() {
+        var
+          countText   = "Tests will run in... ",
+          countdown   = 5,
+          counterNode = document.getElementById("counter");
+
+        function tick() {
+          if (countdown > 0) {
+            counterNode.innerHTML = countText + countdown--;
+            return setTimeout(tick, 1000);
+          }
+          counterNode.innerHTML = "BAM!!!";
+          jasmineRunner.run();
+        }
+
+        jasmineRunner.noAutoRun();
+        jasmineRunner.attachTo(document.getElementById("specs"));
+
+        tick();
+      })();
+    </script>
+  </body>
+</html>
+
+<!-- vim:set sw=2 ts=2 et fdm=marker ft=html: -->

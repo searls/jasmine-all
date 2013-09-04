@@ -43,8 +43,21 @@ module.exports = function (grunt) {
           jasmineCore:         grunt.file.read("lib/jasmine.js")
         } }
       );
-
       grunt.file.write(build_dir + "jasmine-all.js", output);
+
+      grunt.file.copy("lib/introduction-specs.js", build_dir + "introduction-specs.js");
+      output = grunt.template.process(
+        grunt.file.read("index.html.jst"),
+        { data: {
+          jasmineVersion: pkg.version,
+          examples: [
+            grunt.file.read("examples/1.html"),
+            grunt.file.read("examples/2.html"),
+            grunt.file.read("examples/3.html")
+          ]
+        } }
+      );
+      grunt.file.write(build_dir + "index.html", output);
     }
   );
 
