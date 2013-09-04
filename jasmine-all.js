@@ -1,6 +1,7 @@
-(function(){
-  var auto_run = true,
-      element = document;
+(function(jasmine_all_version){
+  var
+    auto_run = true,
+    element  = document;
 
   function init() {
     /** jasmine.css **/
@@ -9,27 +10,28 @@
       styleElement.type = "text/css";
       if (styleElement.styleSheet) {
         styleElement.styleSheet.cssText = cssCode;
-      } else {
+      }
+      else {
         styleElement.appendChild(document.createTextNode(cssCode));
       }
       document.getElementsByTagName("body")[0].appendChild(styleElement);
-    })('body{background-color:#eee;padding:0;margin:5px;overflow-y:scroll}#HTMLReporter{font-size:11px;font-family:Monaco,"Lucida Console",monospace;line-height:14px;color:#333}#HTMLReporter a{text-decoration:none}#HTMLReporter a:hover{text-decoration:underline}#HTMLReporter p,#HTMLReporter h1,#HTMLReporter h2,#HTMLReporter h3,#HTMLReporter h4,#HTMLReporter h5,#HTMLReporter h6{margin:0;line-height:14px}#HTMLReporter .banner,#HTMLReporter .symbolSummary,#HTMLReporter .summary,#HTMLReporter .resultMessage,#HTMLReporter .specDetail .description,#HTMLReporter .alert .bar,#HTMLReporter .stackTrace{padding-left:9px;padding-right:9px}#HTMLReporter #jasmine_content{position:fixed;right:100%}#HTMLReporter .version{color:#aaa}#HTMLReporter .banner{margin-top:14px}#HTMLReporter .duration{color:#aaa;float:right}#HTMLReporter .symbolSummary{overflow:hidden;*zoom:1;margin:14px 0}#HTMLReporter .symbolSummary li{display:block;float:left;height:7px;width:14px;margin-bottom:7px;font-size:16px}#HTMLReporter .symbolSummary li.passed{font-size:14px}#HTMLReporter .symbolSummary li.passed:before{color:#5e7d00;content:"\\02022"} #HTMLReporter .symbolSummary li.failed{line-height:9px}#HTMLReporter .symbolSummary li.failed:before{color:#b03911;content:"x";font-weight:bold;margin-left:-1px}#HTMLReporter .symbolSummary li.skipped{font-size:14px}#HTMLReporter .symbolSummary li.skipped:before{color:#bababa;content:"\\02022"} #HTMLReporter .symbolSummary li.pending{line-height:11px}#HTMLReporter .symbolSummary li.pending:before{color:#aaa;content:"-"}#HTMLReporter .bar{line-height:28px;font-size:14px;display:block;color:#eee}#HTMLReporter .runningAlert{background-color:#666}#HTMLReporter .skippedAlert{background-color:#aaa}#HTMLReporter .skippedAlert:first-child{background-color:#333}#HTMLReporter .skippedAlert:hover{text-decoration:none;color:white;text-decoration:underline}#HTMLReporter .passingAlert{background-color:#a6b779}#HTMLReporter .passingAlert:first-child{background-color:#5e7d00}#HTMLReporter .failingAlert{background-color:#cf867e}#HTMLReporter .failingAlert:first-child{background-color:#b03911}#HTMLReporter .results{margin-top:14px}#HTMLReporter #details{display:none}#HTMLReporter .resultsMenu,#HTMLReporter .resultsMenu a{background-color:#fff;color:#333}#HTMLReporter.showDetails .summaryMenuItem{font-weight:normal;text-decoration:inherit}#HTMLReporter.showDetails .summaryMenuItem:hover{text-decoration:underline}#HTMLReporter.showDetails .detailsMenuItem{font-weight:bold;text-decoration:underline}#HTMLReporter.showDetails .summary{display:none}#HTMLReporter.showDetails #details{display:block}#HTMLReporter .summaryMenuItem{font-weight:bold;text-decoration:underline}#HTMLReporter .summary{margin-top:14px}#HTMLReporter .summary .suite .suite,#HTMLReporter .summary .specSummary{margin-left:14px}#HTMLReporter .summary .specSummary.passed a{color:#5e7d00}#HTMLReporter .summary .specSummary.failed a{color:#b03911}#HTMLReporter .description+.suite{margin-top:0}#HTMLReporter .suite{margin-top:14px}#HTMLReporter .suite a{color:#333}#HTMLReporter #details .specDetail{margin-bottom:28px}#HTMLReporter #details .specDetail .description{display:block;color:white;background-color:#b03911}#HTMLReporter .resultMessage{padding-top:14px;color:#333}#HTMLReporter .resultMessage span.result{display:block}#HTMLReporter .stackTrace{margin:5px 0 0 0;max-height:224px;overflow:auto;line-height:18px;color:#666;border:1px solid #ddd;background:white;white-space:pre}#TrivialReporter{padding:8px 13px;position:absolute;top:0;bottom:0;left:0;right:0;overflow-y:scroll;background-color:white;font-family:"Helvetica Neue Light","Lucida Grande","Calibri","Arial",sans-serif}#TrivialReporter a:visited,#TrivialReporter a{color:#303}#TrivialReporter a:hover,#TrivialReporter a:active{color:blue}#TrivialReporter .run_spec{float:right;padding-right:5px;font-size:.8em;text-decoration:none}#TrivialReporter .banner{color:#303;background-color:#fef;padding:5px}#TrivialReporter .logo{float:left;font-size:1.1em;padding-left:5px}#TrivialReporter .logo .version{font-size:.6em;padding-left:1em}#TrivialReporter .runner.running{background-color:yellow}#TrivialReporter .options{text-align:right;font-size:.8em}#TrivialReporter .suite{border:1px outset gray;margin:5px 0;padding-left:1em}#TrivialReporter .suite .suite{margin:5px}#TrivialReporter .suite.passed{background-color:#dfd}#TrivialReporter .suite.failed{background-color:#fdd}#TrivialReporter .spec{margin:5px;padding-left:1em;clear:both}#TrivialReporter .spec.failed,#TrivialReporter .spec.passed,#TrivialReporter .spec.skipped{padding-bottom:5px;border:1px solid gray}#TrivialReporter .spec.failed{background-color:#fbb;border-color:red}#TrivialReporter .spec.passed{background-color:#bfb;border-color:green}#TrivialReporter .spec.skipped{background-color:#bbb}#TrivialReporter .messages{border-left:1px dashed gray;padding-left:1em;padding-right:1em}#TrivialReporter .passed{background-color:#cfc;display:none}#TrivialReporter .failed{background-color:#fbb}#TrivialReporter .skipped{color:#777;background-color:#eee;display:none}#TrivialReporter .resultMessage span.result{display:block;line-height:2em;color:black}#TrivialReporter .resultMessage .mismatch{color:black}#TrivialReporter .stackTrace{white-space:pre;font-size:.8em;margin-left:10px;max-height:5em;overflow:auto;border:1px inset red;padding:1em;background:#eef}#TrivialReporter .finished-at{padding-left:1em;font-size:.6em}#TrivialReporter.show-passed .passed,#TrivialReporter.show-skipped .skipped{display:block}#TrivialReporter #jasmine_content{position:fixed;right:100%}#TrivialReporter .runner{border:1px solid gray;display:block;margin:5px 0;padding:2px 0 2px 10px}');
+    })('body{background-color:#eee;padding:0;margin:5px;overflow-y:scroll}#HTMLReporter{font-size:11px;font-family:Monaco,"Lucida Console",monospace;line-height:14px;color:#333}#HTMLReporter a{text-decoration:none}#HTMLReporter a:hover{text-decoration:underline}#HTMLReporter p,#HTMLReporter h1,#HTMLReporter h2,#HTMLReporter h3,#HTMLReporter h4,#HTMLReporter h5,#HTMLReporter h6{margin:0;line-height:14px}#HTMLReporter .banner,#HTMLReporter .symbolSummary,#HTMLReporter .summary,#HTMLReporter .resultMessage,#HTMLReporter .specDetail .description,#HTMLReporter .alert .bar,#HTMLReporter .stackTrace{padding-left:9px;padding-right:9px}#HTMLReporter #jasmine_content{position:fixed;right:100%}#HTMLReporter .version{color:#aaa}#HTMLReporter .banner{margin-top:14px}#HTMLReporter .duration{color:#aaa;float:right}#HTMLReporter .symbolSummary{overflow:hidden;*zoom:1;margin:14px 0}#HTMLReporter .symbolSummary li{display:block;float:left;height:7px;width:14px;margin-bottom:7px;font-size:16px}#HTMLReporter .symbolSummary li.passed{font-size:14px}#HTMLReporter .symbolSummary li.passed:before{color:#5e7d00;content:"\02022"}#HTMLReporter .symbolSummary li.failed{line-height:9px}#HTMLReporter .symbolSummary li.failed:before{color:#b03911;content:"x";font-weight:bold;margin-left:-1px}#HTMLReporter .symbolSummary li.skipped{font-size:14px}#HTMLReporter .symbolSummary li.skipped:before{color:#bababa;content:"\02022"}#HTMLReporter .symbolSummary li.pending{line-height:11px}#HTMLReporter .symbolSummary li.pending:before{color:#aaa;content:"-"}#HTMLReporter .exceptions{color:#fff;float:right;margin-top:5px;margin-right:5px}#HTMLReporter .bar{line-height:28px;font-size:14px;display:block;color:#eee}#HTMLReporter .runningAlert{background-color:#666}#HTMLReporter .skippedAlert{background-color:#aaa}#HTMLReporter .skippedAlert:first-child{background-color:#333}#HTMLReporter .skippedAlert:hover{text-decoration:none;color:white;text-decoration:underline}#HTMLReporter .passingAlert{background-color:#a6b779}#HTMLReporter .passingAlert:first-child{background-color:#5e7d00}#HTMLReporter .failingAlert{background-color:#cf867e}#HTMLReporter .failingAlert:first-child{background-color:#b03911}#HTMLReporter .results{margin-top:14px}#HTMLReporter #details{display:none}#HTMLReporter .resultsMenu,#HTMLReporter .resultsMenu a{background-color:#fff;color:#333}#HTMLReporter.showDetails .summaryMenuItem{font-weight:normal;text-decoration:inherit}#HTMLReporter.showDetails .summaryMenuItem:hover{text-decoration:underline}#HTMLReporter.showDetails .detailsMenuItem{font-weight:bold;text-decoration:underline}#HTMLReporter.showDetails .summary{display:none}#HTMLReporter.showDetails #details{display:block}#HTMLReporter .summaryMenuItem{font-weight:bold;text-decoration:underline}#HTMLReporter .summary{margin-top:14px}#HTMLReporter .summary .suite .suite,#HTMLReporter .summary .specSummary{margin-left:14px}#HTMLReporter .summary .specSummary.passed a{color:#5e7d00}#HTMLReporter .summary .specSummary.failed a{color:#b03911}#HTMLReporter .description+.suite{margin-top:0}#HTMLReporter .suite{margin-top:14px}#HTMLReporter .suite a{color:#333}#HTMLReporter #details .specDetail{margin-bottom:28px}#HTMLReporter #details .specDetail .description{display:block;color:white;background-color:#b03911}#HTMLReporter .resultMessage{padding-top:14px;color:#333}#HTMLReporter .resultMessage span.result{display:block}#HTMLReporter .stackTrace{margin:5px 0 0 0;max-height:224px;overflow:auto;line-height:18px;color:#666;border:1px solid #ddd;background:white;white-space:pre}#TrivialReporter{padding:8px 13px;position:absolute;top:0;bottom:0;left:0;right:0;overflow-y:scroll;background-color:white;font-family:"Helvetica Neue Light","Lucida Grande","Calibri","Arial",sans-serif}#TrivialReporter a:visited,#TrivialReporter a{color:#303}#TrivialReporter a:hover,#TrivialReporter a:active{color:blue}#TrivialReporter .run_spec{float:right;padding-right:5px;font-size:.8em;text-decoration:none}#TrivialReporter .banner{color:#303;background-color:#fef;padding:5px}#TrivialReporter .logo{float:left;font-size:1.1em;padding-left:5px}#TrivialReporter .logo .version{font-size:.6em;padding-left:1em}#TrivialReporter .runner.running{background-color:yellow}#TrivialReporter .options{text-align:right;font-size:.8em}#TrivialReporter .suite{border:1px outset gray;margin:5px 0;padding-left:1em}#TrivialReporter .suite .suite{margin:5px}#TrivialReporter .suite.passed{background-color:#dfd}#TrivialReporter .suite.failed{background-color:#fdd}#TrivialReporter .spec{margin:5px;padding-left:1em;clear:both}#TrivialReporter .spec.failed,#TrivialReporter .spec.passed,#TrivialReporter .spec.skipped{padding-bottom:5px;border:1px solid gray}#TrivialReporter .spec.failed{background-color:#fbb;border-color:red}#TrivialReporter .spec.passed{background-color:#bfb;border-color:green}#TrivialReporter .spec.skipped{background-color:#bbb}#TrivialReporter .messages{border-left:1px dashed gray;padding-left:1em;padding-right:1em}#TrivialReporter .passed{background-color:#cfc;display:none}#TrivialReporter .failed{background-color:#fbb}#TrivialReporter .skipped{color:#777;background-color:#eee;display:none}#TrivialReporter .resultMessage span.result{display:block;line-height:2em;color:black}#TrivialReporter .resultMessage .mismatch{color:black}#TrivialReporter .stackTrace{white-space:pre;font-size:.8em;margin-left:10px;max-height:5em;overflow:auto;border:1px inset red;padding:1em;background:#eef}#TrivialReporter .finished-at{padding-left:1em;font-size:.6em}#TrivialReporter.show-passed .passed,#TrivialReporter.show-skipped .skipped{display:block}#TrivialReporter #jasmine_content{position:fixed;right:100%}#TrivialReporter .runner{border:1px solid gray;display:block;margin:5px 0;padding:2px 0 2px 10px}');
 
     if (auto_run) {
       /** defer, then initialize jasmine runner **/
       setTimeout(run, 1);
     }
-  };
+  }
 
   function noAutoRun() { auto_run = false; }
 
   function attachTo(dom_element) {
     // Jasmine's HTMLReporter takes a *document* object as it's base to build
     // on. Unlike a DOM element, several properties are expected.
-		element = {
-			body: dom_element,
-			location: document.location
-		};
+    element = {
+      body:     dom_element,
+      location: document.location
+    };
   }
 
   function run() {
@@ -49,21 +51,22 @@
 
   // Export functions
   window.jasmineRunner = {
-    init: init,
+    init:      init,
     noAutoRun: noAutoRun,
-    attachTo: attachTo,
-    run: run
+    attachTo:  attachTo,
+    run:       run
   };
 
   if(document.addEventListener) {
     document.addEventListener('DOMContentLoaded', init, false);
-  } else {
+  }
+  else {
     document.attachEvent('DOMContentLoaded', init);
   }
-})();
+})('1.3.1-build-1');
 
 /** jasmine.js **/
-var isCommonJS = typeof window == "undefined";
+var isCommonJS = typeof window == "undefined" && typeof exports == "object";
 
 /**
  * Top level namespace for Jasmine, a lightweight JavaScript BDD/spec/testing framework.
@@ -100,9 +103,21 @@ jasmine.VERBOSE = false;
 jasmine.DEFAULT_UPDATE_INTERVAL = 250;
 
 /**
+ * Maximum levels of nesting that will be included when an object is pretty-printed
+ */
+jasmine.MAX_PRETTY_PRINT_DEPTH = 40;
+
+/**
  * Default timeout interval in milliseconds for waitsFor() blocks.
  */
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 5000;
+
+/**
+ * By default exceptions thrown in the context of a test are caught by jasmine so that it can run the remaining tests in the suite.
+ * Set to false to let the exception bubble up in the browser.
+ *
+ */
+jasmine.CATCH_EXCEPTIONS = true;
 
 jasmine.getGlobal = function() {
   function getGlobal() {
@@ -528,7 +543,7 @@ jasmine.log = function() {
  * @see jasmine.createSpy
  * @param obj
  * @param methodName
- * @returns a Jasmine spy that can be chained with all spy methods
+ * @return {jasmine.Spy} a Jasmine spy that can be chained with all spy methods
  */
 var spyOn = function(obj, methodName) {
   return jasmine.getEnv().currentSpec.spyOn(obj, methodName);
@@ -573,6 +588,7 @@ if (isCommonJS) exports.xit = xit;
  * jasmine.Matchers functions.
  *
  * @param {Object} actual Actual value to test against and expected value
+ * @return {jasmine.Matchers}
  */
 var expect = function(actual) {
   return jasmine.getEnv().currentSpec.expect(actual);
@@ -932,6 +948,25 @@ jasmine.Env.prototype.xit = function(desc, func) {
   };
 };
 
+jasmine.Env.prototype.compareRegExps_ = function(a, b, mismatchKeys, mismatchValues) {
+  if (a.source != b.source)
+    mismatchValues.push("expected pattern /" + b.source + "/ is not equal to the pattern /" + a.source + "/");
+
+  if (a.ignoreCase != b.ignoreCase)
+    mismatchValues.push("expected modifier i was" + (b.ignoreCase ? " " : " not ") + "set and does not equal the origin modifier");
+
+  if (a.global != b.global)
+    mismatchValues.push("expected modifier g was" + (b.global ? " " : " not ") + "set and does not equal the origin modifier");
+
+  if (a.multiline != b.multiline)
+    mismatchValues.push("expected modifier m was" + (b.multiline ? " " : " not ") + "set and does not equal the origin modifier");
+
+  if (a.sticky != b.sticky)
+    mismatchValues.push("expected modifier y was" + (b.sticky ? " " : " not ") + "set and does not equal the origin modifier");
+
+  return (mismatchValues.length === 0);
+};
+
 jasmine.Env.prototype.compareObjects_ = function(a, b, mismatchKeys, mismatchValues) {
   if (a.__Jasmine_been_here_before__ === b && b.__Jasmine_been_here_before__ === a) {
     return true;
@@ -1018,6 +1053,10 @@ jasmine.Env.prototype.equals_ = function(a, b, mismatchKeys, mismatchValues) {
     return (a == b);
   }
 
+  if (a instanceof RegExp && b instanceof RegExp) {
+    return this.compareRegExps_(a, b, mismatchKeys, mismatchValues);
+  }
+
   if (typeof a === "object" && typeof b === "object") {
     return this.compareObjects_(a, b, mismatchKeys, mismatchValues);
   }
@@ -1085,10 +1124,15 @@ jasmine.Block = function(env, func, spec) {
 };
 
 jasmine.Block.prototype.execute = function(onComplete) {
-  try {
+  if (!jasmine.CATCH_EXCEPTIONS) {
     this.func.apply(this.spec);
-  } catch (e) {
-    this.spec.fail(e);
+  }
+  else {
+    try {
+      this.func.apply(this.spec);
+    } catch (e) {
+      this.spec.fail(e);
+    }
   }
   onComplete();
 };
@@ -1124,7 +1168,7 @@ jasmine.JsApiReporter.prototype.summarize_ = function(suiteOrSpec) {
     type: isSuite ? 'suite' : 'spec',
     children: []
   };
-
+  
   if (isSuite) {
     var children = suiteOrSpec.children();
     for (var i = 0; i < children.length; i++) {
@@ -1347,6 +1391,17 @@ jasmine.Matchers.prototype.toBeNull = function() {
 };
 
 /**
+ * Matcher that compares the actual to NaN.
+ */
+jasmine.Matchers.prototype.toBeNaN = function() {
+	this.message = function() {
+		return [ "Expected " + jasmine.pp(this.actual) + " to be NaN." ];
+	};
+
+	return (this.actual !== this.actual);
+};
+
+/**
  * Matcher that boolean not-nots the actual.
  */
 jasmine.Matchers.prototype.toBeTruthy = function() {
@@ -1423,18 +1478,14 @@ jasmine.Matchers.prototype.toHaveBeenCalledWith = function() {
     throw new Error('Expected a spy, but got ' + jasmine.pp(this.actual) + '.');
   }
   this.message = function() {
+    var invertedMessage = "Expected spy " + this.actual.identity + " not to have been called with " + jasmine.pp(expectedArgs) + " but it was.";
+    var positiveMessage = "";
     if (this.actual.callCount === 0) {
-      // todo: what should the failure message for .not.toHaveBeenCalledWith() be? is this right? test better. [xw]
-      return [
-        "Expected spy " + this.actual.identity + " to have been called with " + jasmine.pp(expectedArgs) + " but it was never called.",
-        "Expected spy " + this.actual.identity + " not to have been called with " + jasmine.pp(expectedArgs) + " but it was."
-      ];
+      positiveMessage = "Expected spy " + this.actual.identity + " to have been called with " + jasmine.pp(expectedArgs) + " but it was never called.";
     } else {
-      return [
-        "Expected spy " + this.actual.identity + " to have been called with " + jasmine.pp(expectedArgs) + " but was called with " + jasmine.pp(this.actual.argsForCall),
-        "Expected spy " + this.actual.identity + " not to have been called with " + jasmine.pp(expectedArgs) + " but was called with " + jasmine.pp(this.actual.argsForCall)
-      ];
+      positiveMessage = "Expected spy " + this.actual.identity + " to have been called with " + jasmine.pp(expectedArgs) + " but actual calls were " + jasmine.pp(this.actual.argsForCall).replace(/^\[ | \]$/g, '')
     }
+    return [positiveMessage, invertedMessage];
   };
 
   return this.env.contains_(this.actual.argsForCall, expectedArgs);
@@ -1492,22 +1543,19 @@ jasmine.Matchers.prototype.toBeGreaterThan = function(expected) {
  * up to a given level of decimal precision (default 2).
  *
  * @param {Number} expected
- * @param {Number} precision
+ * @param {Number} precision, as number of decimal places
  */
 jasmine.Matchers.prototype.toBeCloseTo = function(expected, precision) {
   if (!(precision === 0)) {
     precision = precision || 2;
   }
-  var multiplier = Math.pow(10, precision);
-  var actual = Math.round(this.actual * multiplier);
-  expected = Math.round(expected * multiplier);
-  return expected == actual;
+  return Math.abs(expected - this.actual) < (Math.pow(10, -precision) / 2);
 };
 
 /**
  * Matcher that checks that the expected exception was thrown by the actual.
  *
- * @param {String} expected
+ * @param {String} [expected]
  */
 jasmine.Matchers.prototype.toThrow = function(expected) {
   var result = false;
@@ -1905,10 +1953,6 @@ jasmine.PrettyPrinter = function() {
  * @param value
  */
 jasmine.PrettyPrinter.prototype.format = function(value) {
-  if (this.ppNestLevel_ > 40) {
-    throw new Error('jasmine.PrettyPrinter: format() nested too deeply!');
-  }
-
   this.ppNestLevel_++;
   try {
     if (value === jasmine.undefined) {
@@ -1951,8 +1995,9 @@ jasmine.PrettyPrinter.prototype.format = function(value) {
 
 jasmine.PrettyPrinter.prototype.iterateObject = function(obj, fn) {
   for (var property in obj) {
+    if (!obj.hasOwnProperty(property)) continue;
     if (property == '__Jasmine_been_here_before__') continue;
-    fn(property, obj.__lookupGetter__ ? (obj.__lookupGetter__(property) !== jasmine.undefined &&
+    fn(property, obj.__lookupGetter__ ? (obj.__lookupGetter__(property) !== jasmine.undefined && 
                                          obj.__lookupGetter__(property) !== null) : false);
   }
 };
@@ -1978,6 +2023,11 @@ jasmine.StringPrettyPrinter.prototype.emitString = function(value) {
 };
 
 jasmine.StringPrettyPrinter.prototype.emitArray = function(array) {
+  if (this.ppNestLevel_ > jasmine.MAX_PRETTY_PRINT_DEPTH) {
+    this.append("Array");
+    return;
+  }
+
   this.append('[ ');
   for (var i = 0; i < array.length; i++) {
     if (i > 0) {
@@ -1989,6 +2039,11 @@ jasmine.StringPrettyPrinter.prototype.emitArray = function(array) {
 };
 
 jasmine.StringPrettyPrinter.prototype.emitObject = function(obj) {
+  if (this.ppNestLevel_ > jasmine.MAX_PRETTY_PRINT_DEPTH) {
+    this.append("Object");
+    return;
+  }
+
   var self = this;
   this.append('{ ');
   var first = true;
@@ -2017,6 +2072,10 @@ jasmine.StringPrettyPrinter.prototype.append = function(value) {
 };
 jasmine.Queue = function(env) {
   this.env = env;
+
+  // parallel to blocks. each true value in this array means the block will
+  // get executed even if we abort
+  this.ensured = [];
   this.blocks = [];
   this.running = false;
   this.index = 0;
@@ -2024,15 +2083,30 @@ jasmine.Queue = function(env) {
   this.abort = false;
 };
 
-jasmine.Queue.prototype.addBefore = function(block) {
+jasmine.Queue.prototype.addBefore = function(block, ensure) {
+  if (ensure === jasmine.undefined) {
+    ensure = false;
+  }
+
   this.blocks.unshift(block);
+  this.ensured.unshift(ensure);
 };
 
-jasmine.Queue.prototype.add = function(block) {
+jasmine.Queue.prototype.add = function(block, ensure) {
+  if (ensure === jasmine.undefined) {
+    ensure = false;
+  }
+
   this.blocks.push(block);
+  this.ensured.push(ensure);
 };
 
-jasmine.Queue.prototype.insertNext = function(block) {
+jasmine.Queue.prototype.insertNext = function(block, ensure) {
+  if (ensure === jasmine.undefined) {
+    ensure = false;
+  }
+
+  this.ensured.splice((this.index + this.offset + 1), 0, ensure);
   this.blocks.splice((this.index + this.offset + 1), 0, block);
   this.offset++;
 };
@@ -2055,8 +2129,8 @@ jasmine.Queue.prototype.next_ = function() {
 
   while (goAgain) {
     goAgain = false;
-
-    if (self.index < self.blocks.length && !this.abort) {
+    
+    if (self.index < self.blocks.length && !(this.abort && !this.ensured[self.index])) {
       var calledSynchronously = true;
       var completedSynchronously = false;
 
@@ -2093,7 +2167,7 @@ jasmine.Queue.prototype.next_ = function() {
       if (completedSynchronously) {
         onComplete();
       }
-
+      
     } else {
       self.running = false;
       if (self.onComplete) {
@@ -2347,7 +2421,7 @@ jasmine.Spec.prototype.finish = function(onComplete) {
 
 jasmine.Spec.prototype.after = function(doAfter) {
   if (this.queue.isRunning()) {
-    this.queue.add(new jasmine.Block(this.env, doAfter, this));
+    this.queue.add(new jasmine.Block(this.env, doAfter, this), true);
   } else {
     this.afterCallbacks.unshift(doAfter);
   }
@@ -2385,15 +2459,15 @@ jasmine.Spec.prototype.addBeforesAndAftersToQueue = function() {
     this.queue.addBefore(new jasmine.Block(this.env, runner.before_[i], this));
   }
   for (i = 0; i < this.afterCallbacks.length; i++) {
-    this.queue.add(new jasmine.Block(this.env, this.afterCallbacks[i], this));
+    this.queue.add(new jasmine.Block(this.env, this.afterCallbacks[i], this), true);
   }
   for (suite = this.suite; suite; suite = suite.parentSuite) {
     for (i = 0; i < suite.after_.length; i++) {
-      this.queue.add(new jasmine.Block(this.env, suite.after_[i], this));
+      this.queue.add(new jasmine.Block(this.env, suite.after_[i], this), true);
     }
   }
   for (i = 0; i < runner.after_.length; i++) {
-    this.queue.add(new jasmine.Block(this.env, runner.after_[i], this));
+    this.queue.add(new jasmine.Block(this.env, runner.after_[i], this), true);
   }
 };
 
@@ -2588,15 +2662,13 @@ jasmine.WaitsForBlock.prototype.execute = function(onComplete) {
 
 jasmine.version_= {
   "major": 1,
-  "minor": 2,
-  "build": 0,
-  "revision": 1337005947
+  "minor": 3,
+  "build": 1,
+  "revision": 1354556913
 };
 
 
-
 /** jasmine-html.js **/
-
 jasmine.HtmlReporterHelpers = {};
 
 jasmine.HtmlReporterHelpers.createDom = function(type, attrs, childrenVarArgs) {
@@ -2677,6 +2749,7 @@ jasmine.HtmlReporter = function(_doc) {
 
     createReporterDom(runner.env.versionString());
     doc.body.appendChild(dom.reporter);
+    setExceptionHandling();
 
     reporterView = new jasmine.HtmlReporter.ReporterView(dom);
     reporterView.addSpecs(specs, self.specFilter);
@@ -2730,7 +2803,7 @@ jasmine.HtmlReporter = function(_doc) {
       }
 
       var paramMap = [];
-      var params = doc.location.search.substring(1).split('&');
+      var params = jasmine.HtmlReporter.parameters(doc);
 
       for (var i = 0; i < params.length; i++) {
         var p = params[i].split('=');
@@ -2750,14 +2823,78 @@ jasmine.HtmlReporter = function(_doc) {
         self.createDom('span', { className: 'version' }, version)),
 
       dom.symbolSummary = self.createDom('ul', {className: 'symbolSummary'}),
-      dom.alert = self.createDom('div', {className: 'alert'}),
+      dom.alert = self.createDom('div', {className: 'alert'},
+        self.createDom('span', { className: 'exceptions' },
+          self.createDom('label', { className: 'label', 'for': 'no_try_catch' }, 'No try/catch'),
+          self.createDom('input', { id: 'no_try_catch', type: 'checkbox' }))),
       dom.results = self.createDom('div', {className: 'results'},
         dom.summary = self.createDom('div', { className: 'summary' }),
         dom.details = self.createDom('div', { id: 'details' }))
     );
   }
+
+  function noTryCatch() {
+    return window.location.search.match(/catch=false/);
+  }
+
+  function searchWithCatch() {
+    var params = jasmine.HtmlReporter.parameters(window.document);
+    var removed = false;
+    var i = 0;
+
+    while (!removed && i < params.length) {
+      if (params[i].match(/catch=/)) {
+        params.splice(i, 1);
+        removed = true;
+      }
+      i++;
+    }
+    if (jasmine.CATCH_EXCEPTIONS) {
+      params.push("catch=false");
+    }
+
+    return params.join("&");
+  }
+
+  function setExceptionHandling() {
+    var chxCatch = document.getElementById('no_try_catch');
+
+    if (noTryCatch()) {
+      chxCatch.setAttribute('checked', true);
+      jasmine.CATCH_EXCEPTIONS = false;
+    }
+    chxCatch.onclick = function() {
+      window.location.search = searchWithCatch();
+    };
+  }
 };
-jasmine.HtmlReporterHelpers.addHelpers(jasmine.HtmlReporter);jasmine.HtmlReporter.ReporterView = function(dom) {
+jasmine.HtmlReporter.parameters = function(doc) {
+  var paramStr = doc.location.search.substring(1);
+  var params = [];
+
+  if (paramStr.length > 0) {
+    params = paramStr.split('&');
+  }
+  return params;
+}
+jasmine.HtmlReporter.sectionLink = function(sectionName) {
+  var link = '?';
+  var params = [];
+
+  if (sectionName) {
+    params.push('spec=' + encodeURIComponent(sectionName));
+  }
+  if (!jasmine.CATCH_EXCEPTIONS) {
+    params.push("catch=false");
+  }
+  if (params.length > 0) {
+    link += params.join("&");
+  }
+
+  return link;
+};
+jasmine.HtmlReporterHelpers.addHelpers(jasmine.HtmlReporter);
+jasmine.HtmlReporter.ReporterView = function(dom) {
   this.startedAt = new Date();
   this.runningSpecCount = 0;
   this.completeSpecCount = 0;
@@ -2840,14 +2977,14 @@ jasmine.HtmlReporterHelpers.addHelpers(jasmine.HtmlReporter);jasmine.HtmlReporte
 
     // currently running UI
     if (isUndefined(this.runningAlert)) {
-      this.runningAlert = this.createDom('a', {href: "?", className: "runningAlert bar"});
+      this.runningAlert = this.createDom('a', { href: jasmine.HtmlReporter.sectionLink(), className: "runningAlert bar" });
       dom.alert.appendChild(this.runningAlert);
     }
     this.runningAlert.innerHTML = "Running " + this.completeSpecCount + " of " + specPluralizedFor(this.totalSpecCount);
 
     // skipped specs UI
     if (isUndefined(this.skippedAlert)) {
-      this.skippedAlert = this.createDom('a', {href: "?", className: "skippedAlert bar"});
+      this.skippedAlert = this.createDom('a', { href: jasmine.HtmlReporter.sectionLink(), className: "skippedAlert bar" });
     }
 
     this.skippedAlert.innerHTML = "Skipping " + this.skippedCount + " of " + specPluralizedFor(this.totalSpecCount) + " - run all";
@@ -2858,7 +2995,7 @@ jasmine.HtmlReporterHelpers.addHelpers(jasmine.HtmlReporter);jasmine.HtmlReporte
 
     // passing specs UI
     if (isUndefined(this.passedAlert)) {
-      this.passedAlert = this.createDom('span', {href: "?", className: "passingAlert bar"});
+      this.passedAlert = this.createDom('span', { href: jasmine.HtmlReporter.sectionLink(), className: "passingAlert bar" });
     }
     this.passedAlert.innerHTML = "Passing " + specPluralizedFor(this.passedCount);
 
@@ -2930,11 +3067,11 @@ jasmine.HtmlReporter.SpecView = function(spec, dom, views) {
   this.dom.symbolSummary.appendChild(this.symbol);
 
   this.summary = this.createDom('div', { className: 'specSummary' },
-      this.createDom('a', {
-        className: 'description',
-        href: '?spec=' + encodeURIComponent(this.spec.getFullName()),
-        title: this.spec.getFullName()
-      }, this.spec.description)
+    this.createDom('a', {
+      className: 'description',
+      href: jasmine.HtmlReporter.sectionLink(this.spec.getFullName()),
+      title: this.spec.getFullName()
+    }, this.spec.description)
   );
 
   this.detail = this.createDom('div', { className: 'specDetail' },
@@ -3005,7 +3142,7 @@ jasmine.HtmlReporterHelpers.addHelpers(jasmine.HtmlReporter.SpecView);jasmine.Ht
   this.views = views;
 
   this.element = this.createDom('div', { className: 'suite' },
-      this.createDom('a', { className: 'description', href: '?spec=' + encodeURIComponent(this.suite.getFullName()) }, this.suite.description)
+    this.createDom('a', { className: 'description', href: jasmine.HtmlReporter.sectionLink(this.suite.getFullName()) }, this.suite.description)
   );
 
   this.appendToSummary(this.suite, this.element);
@@ -3213,3 +3350,6 @@ jasmine.TrivialReporter.prototype.specFilter = function(spec) {
   }
   return spec.getFullName().indexOf(paramMap.spec) === 0;
 };
+
+
+/* vim:set sw=2 ts=2 et fdm=marker ft=javascript: */
