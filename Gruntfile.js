@@ -14,7 +14,17 @@ module.exports = function (grunt) {
     return UglifyCSS.processFiles([file]);
   }
 
-  grunt.initConfig({ pkg: pkg });
+  grunt.loadNpmTasks('grunt-gh-pages');
+
+  grunt.initConfig({
+    pkg: pkg,
+    'gh-pages': {
+      options: {
+        base: build_dir
+      },
+      src: ['**']
+    }
+  });
 
   grunt.registerTask("default", ["build"]);
 
