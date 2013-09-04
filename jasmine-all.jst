@@ -1,0 +1,74 @@
+(function(jasmine_all_version){
+  var
+    auto_run = true,
+    element  = document;
+
+  function init() {
+    /** jasmine.css **/
+    (function(cssCode) {
+      var styleElement = document.createElement("style");
+      styleElement.type = "text/css";
+      if (styleElement.styleSheet) {
+        styleElement.styleSheet.cssText = cssCode;
+      }
+      else {
+        styleElement.appendChild(document.createTextNode(cssCode));
+      }
+      document.getElementsByTagName("body")[0].appendChild(styleElement);
+    })('<%= jasmineCss %>');
+
+    if (auto_run) {
+      /** defer, then initialize jasmine runner **/
+      setTimeout(run, 1);
+    }
+  }
+
+  function noAutoRun() { auto_run = false; }
+
+  function attachTo(dom_element) {
+    // Jasmine's HTMLReporter takes a *document* object as it's base to build
+    // on. Unlike a DOM element, several properties are expected.
+    element = {
+      body:     dom_element,
+      location: document.location
+    };
+  }
+
+  function run() {
+    var jasmineEnv = jasmine.getEnv();
+    jasmineEnv.updateInterval = 1000;
+
+    var htmlReporter = new jasmine.HtmlReporter(element);
+
+    jasmineEnv.addReporter(htmlReporter);
+
+    jasmineEnv.specFilter = function(spec) {
+      return htmlReporter.specFilter(spec);
+    };
+
+    jasmineEnv.execute();
+  }
+
+  // Export functions
+  window.jasmineRunner = {
+    init:      init,
+    noAutoRun: noAutoRun,
+    attachTo:  attachTo,
+    run:       run
+  };
+
+  if(document.addEventListener) {
+    document.addEventListener('DOMContentLoaded', init, false);
+  }
+  else {
+    document.attachEvent('DOMContentLoaded', init);
+  }
+})('<%= jasmineVersion %>');
+
+/** jasmine.js **/
+<%= jasmineCore %>
+
+/** jasmine-html.js **/
+<%= jasmineHtmlReporter %>
+
+/* vim:set sw=2 ts=2 et fdm=marker ft=javascript: */
