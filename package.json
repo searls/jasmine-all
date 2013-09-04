@@ -6,6 +6,7 @@
     "grunt": "~0.4.1",
     "uglify-js2": "~2.1.11",
     "uglifycss": "~0.0.5",
-    "grunt-gh-pages": "~0.7.1"
+    "grunt-gh-pages": "~0.7.1",
+    "jsesc": "~0.4.2"
   }
 }

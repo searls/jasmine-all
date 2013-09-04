@@ -10,8 +10,11 @@ module.exports = function (grunt) {
   }
 
   function compressCssFile(file) {
-    var UglifyCSS = require("uglifycss");
-    return UglifyCSS.processFiles([file]);
+    var
+      UglifyCSS = require("uglifycss"),
+      jsesc     = require("jsesc"),
+      result    = UglifyCSS.processFiles([file]);
+    return jsesc(result);
   }
 
   grunt.loadNpmTasks('grunt-gh-pages');
