@@ -1,3 +1,5 @@
+This is a fork of [searls/jasmine-all](https://github.com/searls/jasmine-all). But that repo seems staled so I descided to continue support here.
+
 # jasmine-all
 
 A single script to embed [jasmine](http://pivotal.github.com/jasmine/) specs in a trivial HTML file or online with something like a JSFiddle very easily.
@@ -5,16 +7,21 @@ A single script to embed [jasmine](http://pivotal.github.com/jasmine/) specs in 
 Here's the URL:
 
 ```
-http://searls.github.com/jasmine-all/jasmine-all-min.js
+http://sukima.github.com/jasmine-all/jasmine-all-min.js
 ```
 
 Here's what that URL looks like in a script tag:
 
 ``` html
-<script type="text/javascript" src="http://searls.github.com/jasmine-all/jasmine-all-min.js"></script>
+<script type="text/javascript" src="http://sukima.github.com/jasmine-all/jasmine-all-min.js"></script>
 ```
 
-Here's what that URL looks like in a [full-blown HTML document](http://searls.github.com/jasmine-all/examples/1-min.html):
+Here's what that URL looks like in a [full-blown HTML document](http://sukima.github.com/jasmine-all/examples/1-min.html):
+
+Other examples: [Disable auto run][1], [attach to another element][2]
+
+[1]: http://sukima.github.com/jasmine-all/examples/2.html
+[2]: http://sukima.github.com/jasmine-all/examples/3.html
 
 ``` html
 <!DOCTYPE html>
@@ -23,7 +30,7 @@ Here's what that URL looks like in a [full-blown HTML document](http://searls.gi
     <title>Jasmine</title>
   </head>
   <body>
-    <script type="text/javascript" src="http://searls.github.com/jasmine-all/jasmine-all-min.js"></script>
+    <script type="text/javascript" src="http://sukima.github.com/jasmine-all/jasmine-all-min.js"></script>
 
     <script type="text/javascript">
       window.hugPanda = function(){ return "yay!"; };
