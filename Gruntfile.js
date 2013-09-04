@@ -40,7 +40,8 @@ module.exports = function (grunt) {
           jasmineVersion:      pkg.version,
           jasmineCss:          compressCssFile("lib/jasmine.css"),
           jasmineHtmlReporter: grunt.file.read("lib/jasmine-html.js"),
-          jasmineCore:         grunt.file.read("lib/jasmine.js")
+          jasmineCore:         grunt.file.read("lib/jasmine.js"),
+          jasmineJquery:       grunt.file.read("lib/jasmine-jquery.js")
         } }
       );
       grunt.file.write(build_dir + "jasmine-all.js", output);

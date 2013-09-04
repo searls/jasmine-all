@@ -38,6 +38,9 @@
     var jasmineEnv = jasmine.getEnv();
     jasmineEnv.updateInterval = 1000;
 
+    /** jasmine-jQuery **/
+    if (window.jQuery != null) { useJasmineJquery(); }
+
     var htmlReporter = new jasmine.HtmlReporter(element);
 
     jasmineEnv.addReporter(htmlReporter);
@@ -70,5 +73,9 @@
 
 /** jasmine-html.js **/
 <%= jasmineHtmlReporter %>
+
+function useJasmineJquery() {
+<%= jasmineJquery %>
+}
 
 /* vim:set sw=2 ts=2 et fdm=marker ft=javascript: */
