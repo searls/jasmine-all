@@ -1,7 +1,8 @@
 module.exports = function (grunt) {
   var
     build_dir = "build/",
-    pkg       = require("./package.json");
+    pkg       = require("./package.json"),
+    hljs      = require("highlight.js");
 
   function compressJsFile(file) {
     var UglifyJS = require("uglify-js2");
@@ -15,6 +16,10 @@ module.exports = function (grunt) {
       jsesc     = require("jsesc"),
       result    = UglifyCSS.processFiles([file]);
     return jsesc(result);
+  }
+
+  function highlightHTML(html) {
+    return hljs.highlight("xml", html).value;
   }
 
   grunt.loadNpmTasks('grunt-contrib-copy');
@@ -59,10 +64,12 @@ module.exports = function (grunt) {
         grunt.file.read("index.html.jst"),
         { data: {
           jasmineVersion: pkg.version,
+          scriptTag: highlightHTML('<script type="text/javascript" src="http://sukima.github.com/jasmine-all/jasmine-all-min.js"></script>'),
+          repo_url: "http://github.com/sukima/jasmine-all/",
           examples: [
-            grunt.file.read("examples/1.html"),
-            grunt.file.read("examples/2.html"),
-            grunt.file.read("examples/3.html")
+            highlightHTML(grunt.file.read("examples/1.html")),
+            highlightHTML(grunt.file.read("examples/2.html")),
+            highlightHTML(grunt.file.read("examples/3.html"))
           ]
         } }
       );

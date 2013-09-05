@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="stylesheets/base.css" />
     <link rel="stylesheet" href="stylesheets/skeleton.css" />
     <link rel="stylesheet" href="stylesheets/layout.css" />
+    <link rel="stylesheet" href="stylesheets/solarized_light.css" />
   </head>
   <body>
     <div class="container">
@@ -20,24 +21,23 @@
 
         <p>Source code available: <a href="<%= repo_url %>"><%= repo_url %></a></p>
 
-      <pre><code>&lt;script type="text/javascript" src="http://sukima.github.com/jasmine-all/jasmine-all-min.js"&gt;&lt;/script&gt;</code></pre>
         <h2 id="how-to-use-it">How to use it</h2>
 
         <p>Simply add the following to your HTML and be on your merry way:</p>
 
-      <pre>
-<%- examples[0] %>
-      </pre>
+        <pre><%= scriptTag %></pre>
 
         <h4 id="example-1">Example 1</h4>
 
-      <pre>
-<%- examples[1] %>
-      </pre>
+        <pre><%= examples[0] %></pre>
 
         <h4 id="example-2">Example 2</h4>
 
+        <pre><%= examples[1] %></pre>
+
         <h4 id="example-3">Example 3</h4>
+
+        <pre><%= examples[2] %></pre>
 
       </div>
 
@@ -46,9 +46,6 @@
         <div id="specs"></div>
       </div>
 
-      <pre>
-<%- examples[2] %>
-      </pre>
     </div>
 
     <script type="text/javascript" src="jasmine-all.js"></script>
