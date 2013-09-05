@@ -64,7 +64,7 @@ module.exports = function (grunt) {
         grunt.file.read("index.html.jst"),
         { data: {
           jasmineVersion: pkg.version,
-          scriptTag: highlightHTML('<script type="text/javascript" src="http://sukima.github.com/jasmine-all/jasmine-all-min.js"></script>'),
+          scriptTag: highlightHTML('<script type="text/javascript" src="http://sukima.github.io/jasmine-all/jasmine-all-min.js"></script>'),
           repo_url: "http://github.com/sukima/jasmine-all/",
           examples: [
             highlightHTML(grunt.file.read("examples/1.html")),
