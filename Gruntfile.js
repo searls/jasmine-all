@@ -17,10 +17,19 @@ module.exports = function (grunt) {
     return jsesc(result);
   }
 
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-gh-pages');
 
   grunt.initConfig({
     pkg: pkg,
+    copy: {
+      main: {
+        cwd: "public/",
+        src: "**",
+        dest: build_dir,
+        expand: true
+      },
+    },
     'gh-pages': {
       options: {
         base: build_dir
@@ -46,7 +55,6 @@ module.exports = function (grunt) {
       );
       grunt.file.write(build_dir + "jasmine-all.js", output);
 
-      grunt.file.copy("lib/introduction-specs.js", build_dir + "introduction-specs.js");
       output = grunt.template.process(
         grunt.file.read("index.html.jst"),
         { data: {
@@ -73,7 +81,8 @@ module.exports = function (grunt) {
     "Builds and minifies jasmine-all-min.js",
     [
       "build:compileStandAlone",
-      "build:compressStandAlone"
+      "build:compressStandAlone",
+      "copy"
     ]
   );
 
