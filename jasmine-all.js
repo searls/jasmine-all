@@ -66,7 +66,7 @@
   else {
     document.attachEvent('DOMContentLoaded', init);
   }
-})('1.3.1-build-2');
+})('1.3.1-build-3');
 
 /** jasmine.js **/
 var isCommonJS = typeof window == "undefined" && typeof exports == "object";
