@@ -1,5 +1,3 @@
-This is a fork of [searls/jasmine-all](https://github.com/searls/jasmine-all). But that repo seems staled so I descided to continue support here.
-
 # jasmine-all
 
 A single script to embed [jasmine](http://pivotal.github.com/jasmine/) specs in a trivial HTML file or online with something like a JSFiddle very easily.
