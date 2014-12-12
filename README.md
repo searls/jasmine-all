@@ -14,12 +14,7 @@ Here's what that URL looks like in a script tag:
 <script type="text/javascript" src="http://searls.github.com/jasmine-all/jasmine-all-min.js"></script>
 ```
 
-Here's what that URL looks like in a [full-blown HTML document](http://searls.github.com/jasmine-all/examples/1-min.html):
-
-Other examples: [Disable auto run][1], [attach to another element][2]
-
-[1]: http://searls.github.com/jasmine-all/examples/2.html
-[2]: http://searls.github.com/jasmine-all/examples/3.html
+Check out the [examples](http://searls.github.com/jasmine-all/).
 
 ``` html
 <!DOCTYPE html>

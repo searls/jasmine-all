@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Jasmine-All Test Runner</title>
+    <link rel="stylesheet" href="stylesheets/base.css" />
+    <link rel="stylesheet" href="stylesheets/skeleton.css" />
+    <link rel="stylesheet" href="stylesheets/layout.css" />
+    <link rel="stylesheet" href="stylesheets/solarized_light.css" />
+  </head>
+  <body>
+    <div class="container">
+
+      <h1 class="title sixteen columns clearfix">Jasmine-All</h1>
+
+      <div class="eight columns alpha">
+        <p>This is a simple wrapper around <a href="http://pivotal.github.com/jasmine/">Jasmine</a> to allow easy inclution into html pages which can not include their own runner and CSS. The best example is dynamic sites that allow you to write simple HTML and JS docs for experimentation like <a href="http://jsbin.com/">JSBin</a> and <a href="http://jsfiddle.net/">JS Fiddle</a>.</p>
+
+        <p>Here is an <a href="http://jsbin.com/UfadEde/1/edit">example of a JSBin</a> using this wrapper.</p>
+
+        <p>Version: <%= jasmineVersion %></p>
+
+        <p>Source code available: <a href="<%= repo_url %>"><%= repo_url %></a></p>
+
+        <p>This package also allows you to embed the test output into any DOM element and trigger the execution of test based on your own event.</p>
+        
+        <p>This page is an example which runs the tests delayed after five seconds instead of immediately like the usual Jasmine HTML Runner does.</p>
+
+        <p>And if your page happens to use <a href="http://jquery.com/">jQuery</a> this package will include and enable <a href="https://github.com/velesin/jasmine-jquery">jasmine-jquery</a> built in. See <a href="http://jsbin.com/IhICoWO/2/edit">this JSBin</a> as an example.</p>
+
+        <h2 id="how-to-use-it">How to use it</h2>
+
+        <p>Simply add the following to your HTML and be on your merry way:</p>
+
+        <pre><%= scriptTag %></pre>
+
+        <h4 id="example-1">Example 1</h4>
+
+        <pre><%= examples[0] %></pre>
+
+        <h4 id="example-2">Example 2</h4>
+
+        <pre><%= examples[1] %></pre>
+
+        <h4 id="example-3">Example 3</h4>
+
+        <pre><%= examples[2] %></pre>
+
+      </div>
+
+      <div class="seven columns omega offset-by-one">
+        <div id="counter"></div>
+        <div id="specs"></div>
+      </div>
+
+    </div>
+
+    <script type="text/javascript" src="jasmine-all.js"></script>
+    <script type="text/javascript" src="introduction-specs.js"></script>
+    <script type="text/javascript">
+      (function() {
+        var
+          countText   = "Tests will run in... ",
+          countdown   = 5,
+          counterNode = document.getElementById("counter");
+
+        function tick() {
+          if (countdown > 0) {
+            counterNode.innerHTML = countText + countdown--;
+            return setTimeout(tick, 1000);
+          }
+          counterNode.innerHTML = "BAM!!!";
+          counterNode.className = "done";
+          jasmineRunner.run();
+        }
+
+        jasmineRunner.noAutoRun();
+        jasmineRunner.attachTo(document.getElementById("specs"));
+
+        tick();
+      })();
+    </script>
+  </body>
+</html>
+
+<!-- vim:set sw=2 ts=2 et fdm=marker ft=html: -->

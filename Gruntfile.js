@@ -1,7 +1,8 @@
 module.exports = function (grunt) {
   var
     build_dir = "build/",
-    pkg       = require("./package.json");
+    pkg       = require("./package.json"),
+    hljs      = require("highlight.js");
 
   function compressJsFile(file) {
     var UglifyJS = require("uglify-js2");
@@ -17,10 +18,23 @@ module.exports = function (grunt) {
     return jsesc(result);
   }
 
+  function highlightHTML(html) {
+    return hljs.highlight("xml", html).value;
+  }
+
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-gh-pages');
 
   grunt.initConfig({
     pkg: pkg,
+    copy: {
+      main: {
+        cwd: "public/",
+        src: "**",
+        dest: build_dir,
+        expand: true
+      },
+    },
     'gh-pages': {
       options: {
         base: build_dir
@@ -40,11 +54,26 @@ module.exports = function (grunt) {
           jasmineVersion:      pkg.version,
           jasmineCss:          compressCssFile("lib/jasmine.css"),
           jasmineHtmlReporter: grunt.file.read("lib/jasmine-html.js"),
-          jasmineCore:         grunt.file.read("lib/jasmine.js")
+          jasmineCore:         grunt.file.read("lib/jasmine.js"),
+          jasmineJquery:       grunt.file.read("lib/jasmine-jquery.js")
         } }
       );
-
       grunt.file.write(build_dir + "jasmine-all.js", output);
+
+      output = grunt.template.process(
+        grunt.file.read("index.html.jst"),
+        { data: {
+          jasmineVersion: pkg.version,
+          scriptTag: highlightHTML('<script type="text/javascript" src="http://sukima.github.io/jasmine-all/jasmine-all-min.js"></script>'),
+          repo_url: "http://github.com/sukima/jasmine-all/",
+          examples: [
+            highlightHTML(grunt.file.read("examples/1.html")),
+            highlightHTML(grunt.file.read("examples/2.html")),
+            highlightHTML(grunt.file.read("examples/3.html"))
+          ]
+        } }
+      );
+      grunt.file.write(build_dir + "index.html", output);
     }
   );
 
@@ -59,7 +88,8 @@ module.exports = function (grunt) {
     "Builds and minifies jasmine-all-min.js",
     [
       "build:compileStandAlone",
-      "build:compressStandAlone"
+      "build:compressStandAlone",
+      "copy"
     ]
   );
 
