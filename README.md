@@ -18,7 +18,7 @@ Check out the [examples](http://searls.github.io/jasmine-all/).
 
 ``` html
 <!DOCTYPE html>
-</html>
+<html>
   <head>
     <title>Jasmine</title>
   </head>
