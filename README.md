@@ -5,7 +5,7 @@ A single script to embed [jasmine](http://pivotal.github.io/jasmine/) specs in a
 Here's the URL:
 
 ```
-http://searls.github.io/jasmine-all/jasmine-all-min.js
+https://searls.github.io/jasmine-all/jasmine-all-min.js
 ```
 
 Here's what that URL looks like in a script tag:
