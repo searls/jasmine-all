@@ -1,6 +1,6 @@
 # jasmine-all
 
-A single script to embed [jasmine](https://pivotal.github.io/jasmine/) specs in a trivial HTML file or online with something like a JSFiddle very easily.
+A single script to embed [jasmine](https://jasmine.github.io/) specs in a trivial HTML file or online with something like a JSFiddle very easily.
 
 Here's the URL:
 
